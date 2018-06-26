@@ -3,6 +3,6 @@
 	"EXPERIMENT_FOLDER":"Experimentos",
 	"IP_DB":"127.0.0.1",
 	"USER_DB":"root",
-	"PASSWORD_DB":"sudokuCVRmysql",
-	"NAME_DB":"BaseRIP"
+	"PASSWORD_DB":"Cayosama93RIP",
+	"NAME_DB":"BaseRIP_prueba"
 }

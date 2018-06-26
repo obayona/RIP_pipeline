@@ -27,7 +27,9 @@ def moveFile(filename):
 		# se mueve el archivo
 		shutil.move(src, dst)
 		# se descomprime el archivo
-		command = "tar -xzf " + dst + " -C " + EXPERIMENT_FOLDER;
+		filename = dst.replace(" ","\ ");
+		command = "tar -xzf " + filename + " -C " + EXPERIMENT_FOLDER;
+		print command
 		result = commands.getstatusoutput(command)
 		if (result[0] != 0):
 			return "Error al descomprimir" + str(result);

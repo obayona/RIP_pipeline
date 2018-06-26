@@ -10,6 +10,7 @@ Este script registra el experimento en la base de datos
 """
 
 def parseMetaDataFile(path):
+	array = []
 	for line in open(path,"r") :
 		l = line.rstrip('\n')
 		if(len(l)>1):     
@@ -17,6 +18,7 @@ def parseMetaDataFile(path):
 	return array;
 
 def _saveDB(idPlanta, idHoja, fechaHora, ruta):
+	config = utils.config();
 	try:
 		IP_DB = config["IP_DB"];
 		USER_DB = config["USER_DB"];
@@ -45,11 +47,11 @@ def saveDB(folder_experiment):
 	try:
 		params = parseMetaDataFile(metadata_file_path);
 		# se obtienen los metadatos
-		idPlanta = int(array[0]);
-		idHoja = int(array[1]);
-		tmp = array[2].strip()
+		idPlanta = int(params[0]);
+		idHoja = int(params[1]);
+		tmp = params[2].strip()
 		fechaHora = datetime.strptime(tmp, "%Y-%m-%d %H-%M-%S")
-		ruta = array[3]
+		ruta = params[3].strip()
 
 		#se guarda en la base de datos
 		result = _saveDB(idPlanta, idHoja, fechaHora, ruta);
@@ -64,4 +66,8 @@ if __name__ == "__main__":
 		raise ValueError('Falta un argumento')
 
 	folder_experiment = sys.argv[1]
-	saveDB(folder_experiment);
+	result = saveDB(folder_experiment);
+	if result == None:
+		print "Todo correcto";
+	else:
+		print result
