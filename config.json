@@ -1,0 +1,8 @@
+{
+	"COMMING_EXPERIMENT_FOLDER":"Experimentos_llegada",
+	"EXPERIMENT_FOLDER":"Experimentos",
+	"IP_DB":"127.0.0.1",
+	"USER_DB":"root",
+	"PASSWORD_DB":"sudokuCVRmysql",
+	"NAME_DB":"BaseRIP"
+}
