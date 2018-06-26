@@ -22,9 +22,7 @@ def listen():
 	connection.bind((HOST, PORT))
 	connection.listen(10)
 	while True:
-		print("esperando..")
 		current_connection, address = connection.accept()
-		print("conectado****")
 		while True:
 			data = current_connection.recv(2048)
 			if not data:
